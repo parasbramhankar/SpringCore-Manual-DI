@@ -1,0 +1,112 @@
+
+
+FLOW OF THE PROGRAM (POINTS)
+
+1. Program starts in the main() method.
+
+2. A Scanner object is created to take user input.
+
+3. The program prints two options:
+
+   1. Petrol engine
+   2. Diesel engine
+
+4. A Car object is created. At this point, the car has no engine.
+
+5. User enters a choice (1 or 2).
+
+6. If user selects 1:
+
+   * A PetrolEngine object is created.
+   * That PetrolEngine object is given to the car using car.setEngine().
+   * car.drive() is called.
+
+7. If user selects 2:
+
+   * A DieselEngine object is created.
+   * That DieselEngine object is given to the car using car.setEngine().
+   * car.drive() is called.
+
+8. Inside car.drive():
+
+   * It calls engine.start() on whichever engine was injected.
+   * Because PetrolEngine and DieselEngine both implement Engine, the correct start() runs.
+
+9. The engine prints its starting message and returns 1.
+
+10. Car checks:
+
+    * If return value > 0 → print "Car Started..."
+    * Else → print "Car not started..."
+
+------------------------------------------------------------------------------
+
+MANUAL DEPENDENCY INJECTION (POINTS)
+------------------------------------
+1. DI means giving an object’s dependency from outside, not creating it inside the class.
+
+2. Car needs an Engine. Instead of creating engine inside the Car, we give it from outside.
+
+3. You use setter injection:
+
+   car.setEngine(petrolEngine);
+
+4. This is called manual DI because you are manually creating the object and manually injecting it.
+
+------------------------------------------------------------------------------
+
+WITHOUT DI (TIGHT COUPLING) – BAD
+=================================
+1. If the Car class creates its own engine like:
+
+   engine = new PetrolEngine();
+
+2. Problems:
+
+   * Car is forced to use only PetrolEngine.
+   * Cannot switch to DieselEngine.
+   * Hard to modify later.
+   * Hard to test.
+   * Violates flexibility.
+
+This is tight coupling.
+
+------------------------------------------------------------------------------
+
+WITH DI (LOOSE COUPLING) – GOOD
+===============================
+1. Car depends only on the Engine interface, not any specific engine.
+
+2. You give PetrolEngine or DieselEngine at runtime.
+
+3. Car does not care which engine it is using, as long as it follows Engine interface.
+
+4. Benefits:
+
+   * Flexible code
+   * Easy to change engine type
+   * Easy to extend (electric, hybrid in future)
+   * Good design (follows OOP principles)
+
+This is loose coupling.
+
+------------------------------------------------------------------------------
+
+WHY YOUR CODE IS LOOSELY COUPLED
+
+1. Car uses Engine interface, not PetrolEngine or DieselEngine directly.
+2. You inject (set) the engine from the outside.
+3. You can easily replace implementation anytime.
+4. Car is not tied to any particular engine class.
+
+------------------------------------------------------------------------------
+
+SIMPLE REAL-LIFE EXPLANATION
+
+Tight Coupling:
+Car says: “I will only use Petrol Engine. No other option.”
+
+Loose Coupling:
+Car says: “Give me any engine that follows the rules of Engine interface. I will work with it.”
+
+------------------------------------------------------------------------------
