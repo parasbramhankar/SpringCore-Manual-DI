@@ -2,21 +2,6 @@ package org.example;
 
 import java.util.Scanner;
 
-/**
- * MANUAL DI – Manual Dependency Injection
- * -----------------------------------------
- * What is DI?
- *  DI = Giving an object’s required dependency from outside.
- *  (Not creating inside)
- *
- *  Your Car needs an engine → engine is a dependency.
- *
- *  You give engine to car like this:
- *
- *  car.setEngine(petrolEngine);  line number 36,41
- *
- *  This is Manual Dependency Injection. *
- */
 public class App 
 {
     public static void main( String[] args )
