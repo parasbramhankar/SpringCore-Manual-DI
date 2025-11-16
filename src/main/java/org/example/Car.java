@@ -3,6 +3,7 @@ package org.example;
 public class Car {
     Engine engine;
 
+    // Injecting the Engine object into Car
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
