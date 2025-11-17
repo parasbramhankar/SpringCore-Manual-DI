@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
+
 public class App 
 {
     public static void main( String[] args )
@@ -24,7 +25,6 @@ public class App
                    car.setEngine(dieselEngine);
                    car.drive();
                    break;
-
             default:
                 System.out.println("Invalid input !!");;
         }
